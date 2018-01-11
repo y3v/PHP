@@ -7,7 +7,7 @@ echo '<h1>Buy Your Way to a Better Education</h1>
 <form action="set8.php" method="post">
 	<div>
 		<label>Name</label>
-		<input type="text" name="name"/>
+		<input type="text" name="name" value="<?php echo $name; ?> "/>
 	</div>
 	<div>
 		<label>Section</label>
@@ -19,7 +19,7 @@ echo '<h1>Buy Your Way to a Better Education</h1>
 	</div>
 	<div>
 		<label>Credit Card</label>
-		<input type="text" name="cc"/>
+		<input type="text" name="cc" value="<?php echo $cc; ?>"/>
 	</div>
 	<div>
 		<input type="radio" name="typeOfCard" value="visa"/>
