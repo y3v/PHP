@@ -5,7 +5,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Buy Your Way to a Better Education</h1>
+<style>
+	.error{
+		font-size:13px;
+		color:red;
+		margin-left:5px;
+	}
+</style>
+<h1>Buy Your Way to a Better Education</h1>
 <p>Recent changes in University of Washinton policy now allow us to offer grades for money. That\'s right! All you need to get an A is cold,hard,cash</p>
 	
 <h2>Give us your money</h2>
@@ -13,7 +20,7 @@
 <form action="set8.php" method="post">
 	<div>
 		<label>Name</label>
-		<input type="text" name="name"/>
+		<input type="text" name="name" value="<?php echo trim($_POST['name']); ?> "/><span class="error"><?php if (!empty($nameMessage)){ echo $nameMessage; } ?></span>
 	</div>
 	<div>
 		<label>Section</label>
@@ -25,7 +32,7 @@
 	</div>
 	<div>
 		<label>Credit Card</label>
-		<input type="text" name="cc"/>
+		<input type="text" name="cc" value="<?php echo $_POST['cc']; ?>"/> <span class="error"><?php if (!empty($ccMessage)){ echo $ccMessage; } ?></span>
 	</div>
 	<div>
 		<input type="radio" name="typeOfCard" value="visa"/>
@@ -33,7 +40,7 @@
 		<input type="radio" name="typeOfCard" value="mc"/>
 		<label>Mastercard</label>
 	</div>
-	<input type="submit" value="I am a giant sucker!"/>
-</form>'
+	<input type="submit" name="button" value="I am a giant sucker!"/>
+</form>
 </body>
 </html>
