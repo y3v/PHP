@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<style>
+	.error{
+		font-size:13px;
+		color:red;
+	}
+</style>
+<body>
+	<h1>BMI Calculator</h1>
+	<form action="BMI-Calculator.php" method="get">
+		<div>
+			<label>Weight in kg</label>
+			<input type="number" step="0.01" name="weight" value="<?php echo $_GET['weight'];?>"/><span class="error"><?php if (!empty($errorMessage)){ echo $errorMessage; } ?></span>
+		</div>
+		<div>
+			<label>Height in metres</label>
+			<input type="number" step="0.01" name="height" value="<?php echo $_GET['height'];?>"/><span class="error"><?php if (!empty($errorMessage)){ echo $errorMessage; } ?></span>
+		</div>
+		<input type="submit" value="Calculate"  name="submitBtn"/>
+		<button name="resetBtn">Reset</button>
+	</form>
+</body>
+</html>

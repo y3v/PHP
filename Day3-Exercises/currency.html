@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="Utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Currency-Calculator example</h1>
+	<form action="currency-calculator.php" method="get">
+		<div>
+			<label>Dollars:</label>
+			<input type="number" step="0.01" name="amount" value="<?php echo $_GET['amount'];?>"/><span class="error"><?php if (!empty($errorMessage)){ echo $errorMessage; } ?></span>
+		</div>
+		<input type="submit" value="Calculate"  name="submitBtn"/>
+		<button name="resetBtn">Reset</button>
+	</form>
+</body>
+</html>

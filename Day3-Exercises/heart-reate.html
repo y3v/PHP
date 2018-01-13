@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="Utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Heart Rate example</h1>
+	<form action="heart-rate.php" method="get">
+		<div>
+			<label>Age:</label>
+			<input type="number" name="age" value="<?php echo $_GET['age'];?>"/><span class="error"><?php if (!empty($errorMessage)){ echo $errorMessage; } ?></span>
+		</div>
+		<input type="submit" value="Calculate"  name="submitBtn"/>
+		<button name="resetBtn">Reset</button>
+	</form>
+</body>
+</html>
