@@ -20,7 +20,7 @@
 <form action="set8.php" method="post">
 	<div>
 		<label>Name</label>
-		<input type="text" name="name" value="<?php echo trim($_POST['name']);?>"/><span class="error"><?php if (!empty($nameMessage)){ echo $nameMessage; } ?></span>
+		<input type="text" name="name" oninput="prefill()" value="<?php echo trim($name);?>"/><span class="error"><?php if (!empty($nameMessage)){ echo $nameMessage; } ?></span>
 	</div>
 	<div>
 		<label>Section</label>
@@ -32,7 +32,7 @@
 	</div>
 	<div>
 		<label>Credit Card</label>
-		<input type="text" name="cc" value="<?php echo $_POST['cc']; ?>"/> <span class="error"><?php if (!empty($ccMessage)){ echo $ccMessage; } ?></span>
+		<input type="text" name="cc" value="<?php echo $cc; ?>"/><span class="error"><?php if (!empty($ccMessage)){ echo $ccMessage; } ?></span>
 	</div>
 	<div>
 		<input type="radio" name="typeOfCard" value="visa"/>
@@ -43,4 +43,10 @@
 	<input type="submit" name="button" value="I am a giant sucker!"/>
 </form>
 </body>
+<script>
+	function prefill(){
+		document.body.style.backgroundColor ="red";
+		<?php autocomplete(); ?>
+	}
+</script>
 </html>
