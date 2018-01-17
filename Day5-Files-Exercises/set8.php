@@ -3,8 +3,8 @@
 
 //Questions: Writing only works when URL is absolute.... 
 
-// $file = "U:\git\PHP\Day3-Exercises\info.txt";
-$file = "C:\Users\Yev\git\PHP\Day3-Exercises\info.txt";
+$file = "U:\git\PHP\Day3-Exercises\info.txt";
+//$file = "C:\Users\Yev\git\PHP\Day3-Exercises\info.txt";
 
 $FILEH = fopen($file, 'r') or die("Cannot open $file");
 $inline = fgets($FILEH);
@@ -62,7 +62,8 @@ if (isset($_FILES['upload'])) {
             $tmp = $_FILES['upload']['tmp_name'];
             echo $_FILES['upload']['tmp_name'] . "\n";
             echo $_FILES['upload']['name'];
-            $dst = "C:/Users/Yev/Pictures/Test/{$_FILES['upload']['name']}";
+            //$dst = "C:/Users/Yev/Pictures/Test/{$_FILES['upload']['name']}";
+            $dst = "C:\Users\ykantoro\Pictures/Test/{$_FILES['upload']['name']}";
         }
         if (move_uploaded_file($tmp, $dst)) {
             // Success !
