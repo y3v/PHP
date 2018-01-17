@@ -1,9 +1,9 @@
 <?php
 
 //$file = "U:\git\PHP\Day3-Exercises\info.txt";
-$file = "info.txt";
+$file = "C:\Users\Yev\git\PHP\Day3-Exercises\info.txt";
 
-$FILEH = fopen($file, 'r') or die ("Cannot open $file");
+$FILEH = fopen($file, 'r') or die("Cannot open $file");
 $inline = fgets($FILEH);
 $userInfo = array();
 
@@ -37,11 +37,13 @@ if (isset($_POST["button"])){
     } 
     
     if (empty($nameMessage) AND empty($ccMessage)){
-        $FILEH = fopen($file, 'a+') or die ("Cannot open $file");
+        $FILEH = fopen($file, 'a+') or die("Cannot open $file");
         //$inline = fgets($FILEH);
         //$userInfo = array();
         fputs($FILEH, $name.','.$cc."\n");
         fclose($FILEH);
+        $name = "";
+        $cc = "";
     }
 }
 
