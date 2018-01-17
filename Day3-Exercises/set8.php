@@ -1,6 +1,7 @@
 <?php
 
-$file = "U:\git\PHP\Day3-Exercises\info.txt";
+//$file = "U:\git\PHP\Day3-Exercises\info.txt";
+$file = "info.txt";
 
 $FILEH = fopen($file, 'r') or die ("Cannot open $file");
 $inline = fgets($FILEH);
@@ -45,10 +46,6 @@ if (isset($_POST["button"])){
 }
 
 include "NewFile.html";
-
-function autocomplete(){
-    return json_encode($userInfo);
-}
 
 
 ?>

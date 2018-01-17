@@ -20,7 +20,7 @@
 <form action="set8.php" method="post">
 	<div>
 		<label>Name</label>
-		<input type="text" name="name" oninput="prefill()" value="<?php echo trim($name);?>"/><span class="error"><?php if (!empty($nameMessage)){ echo $nameMessage; } ?></span>
+		<input type="text" name="name" id="name" value="<?php echo trim($name);?>"/><span class="error"><?php if (!empty($nameMessage)){ echo $nameMessage; } ?></span>
 	</div>
 	<div>
 		<label>Section</label>
@@ -32,7 +32,7 @@
 	</div>
 	<div>
 		<label>Credit Card</label>
-		<input type="text" name="cc" value="<?php echo $cc; ?>"/><span class="error"><?php if (!empty($ccMessage)){ echo $ccMessage; } ?></span>
+		<input type="text" name="cc" id="cc" value="<?php echo $cc; ?>"/><span class="error"><?php if (!empty($ccMessage)){ echo $ccMessage; } ?></span>
 	</div>
 	<div>
 		<input type="radio" name="typeOfCard" value="visa"/>
@@ -44,9 +44,35 @@
 </form>
 </body>
 <script>
-	function prefill(){
-		document.body.style.backgroundColor ="red";
-		<?php autocomplete(); ?>
+	var data = <?php echo json_encode($userInfo)?>;
+	console.log(data);
+	/* for (var x in data) {
+	   console.log(data[x]);
+	   console.log(x);
+	} */
+	
+	var input = document.getElementById("name");
+	var cc = document.getElementById("cc");
+	var search = true;
+	
+	input.oninput = function(){
+		for (var x in data) {
+			var length = input.value.length;
+			/* console.log(x.substring(0,length));
+			console.log(input.value); */
+			if (x.substring(0,length) == input.value && input.value && search){
+				 console.log(x);
+				 search = false;
+				 input.value = x;
+				 cc.value= data[x];
+			}
+			if (input.value == ""){
+				 search = true;
+			   }
+			}
+		if (!input.value){
+			cc.value = "";
+		}
 	}
 </script>
 </html>
